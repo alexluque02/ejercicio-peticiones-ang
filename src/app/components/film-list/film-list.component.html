@@ -1,3 +1,22 @@
 <div class="row">
-    <app-film class="col-4 mt-2" *ngFor="let f of filmList" [film]="f"></app-film>
+    <app-film class="col-4 mt-2" *ngFor="let f of filmList" [film]="f" (filmClick)="openModal(modalFilm, f)">
+        <ng-template #modalFilm let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">More Details</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <p>{{f.title}}</p>
+                        <p><strong>Characters</strong></p>
+                        <ul>
+                            <li *ngFor="let character of f.characters">{{character}}</li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </ng-template>
+    </app-film>
 </div>
