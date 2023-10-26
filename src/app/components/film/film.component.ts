@@ -9,19 +9,19 @@ import { Film } from 'src/app/models/films-interface';
 export class FilmComponent {
 
   @Input() film!: Film;
-  @Output() filmClick = new EventEmitter<Film>();
+  @Output() filmClick = new EventEmitter<string>();
 
-  getFilmId() {
+  getFilmId(): string {
     return this.film.url.split("/").reverse()[1];
   }
 
   getImagenUrl() {
     const ID = this.getFilmId();
-    return "https://starwars-visualguide.com/assets/img/films/" + ID + ".jpg"
+    return "https://starwars-visualguide.com/assets/img/films/" + ID + ".jpg";
   }
 
   viewFilmDetails() {
-    this.filmClick.emit(this.film);
+    this.filmClick.emit(this.getFilmId());
   }
 
 }
