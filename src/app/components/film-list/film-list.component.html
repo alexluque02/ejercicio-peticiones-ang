@@ -1,5 +1,8 @@
-<div *ngIf="loading" class="spinner-border" role="status">
+<!--<div *ngIf="loading" class="spinner-border spinner-container" role="status">
     <span class="visually-hidden">Loading...</span>
+</div>-->
+<div *ngIf="loading" class="spinner-container text-center">
+    <img src="https://i.gifer.com/Wx78.gif" alt="">
 </div>
 <div class="row">
     <app-film class="col-4 mt-2" *ngFor="let f of filmList" [film]="f" (filmClick)="openModal($event, modalFilm)">

@@ -1,0 +1,7 @@
+.spinner-container {
+    position: fixed;
+    top: 33%;
+    left: 40%;
+    height: 100px;
+    width: 100px;
+}
